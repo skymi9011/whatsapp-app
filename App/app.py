@@ -14,7 +14,6 @@ from PyQt5.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QH
 from PyQt5.QtGui import QPixmap, QIcon, QFont, QColor, QPalette, QFontDatabase, QDrag, QIntValidator
 from PyQt5.QtCore import Qt, QThread, pyqtSignal, QSize, QUrl, QMimeData
 import requests
-from functools import partial
 
 # Define brand colors with adjusted shades
 PRIMARY_COLOR = "#1976D2"  # Deeper blue
