@@ -132,7 +132,7 @@ class WhatsAppSender(QThread):
                         f"Error processing {name} ({number}): {str(e)}",
                         "error"
                     )
-            
+            time.sleep(1)  
             driver.quit()
             self.finished.emit(True, f"Completed sending messages. Success: {success_count}/{total_count}")
             
@@ -478,10 +478,12 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.sender_thread = None
         self.initUI()
-        
+        self.setWindowIcon(QIcon(".\\app.ico")) 
     def initUI(self):
+    
         self.setStyleSheet(StyleSheet.get_stylesheet())
-        self.setWindowTitle("DeerMedia WhatsApp Messenger")
+        self.setWindowTitle("DeerMedia WhatsApp Sender")
+        self.setWindowIcon(QIcon(".\\app.ico")) 
         self.setMinimumSize(1000, 800)
         self.setStyleSheet(StyleSheet.get_stylesheet())
         
@@ -520,7 +522,7 @@ class MainWindow(QMainWindow):
             logo_label = QLabel("DeerMedia")
             logo_label.setFont(QFont("Segoe UI", 16, QFont.Bold))
         
-        title_label = QLabel("WhatsApp Messenger")
+        title_label = QLabel("WhatsApp Sender")
         title_label.setObjectName("HeaderTitle")
         title_label.setFont(QFont("Segoe UI", 14, QFont.Bold))
         
